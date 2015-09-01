@@ -1,0 +1,32 @@
+{
+  "name": "Twilio_Twitter",
+  "version": "1.0.0",
+  "description": "This application takes a twitter handle texted to a twilio phone number and replies back with the last tweet of the identified by the handle",
+  "main": "twilio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/querales/Twillio_Twitter.git"
+  },
+  "keywords": [
+    "twilio",
+    "twitter",
+    "text",
+    "handle"
+  ],
+  "author": "Gabriella Querales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/querales/Twillio_Twitter/issues"
+  },
+  "homepage": "https://github.com/querales/Twillio_Twitter",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "twilio": "^2.3.0",
+    "twitter": "^1.2.5"
+  },
+  "devDependencies": {}
+}
