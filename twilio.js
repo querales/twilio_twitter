@@ -37,7 +37,8 @@ app.post('/',twilio.webhook({url:TWILIO_URL,validate:false}),
                     response.send(twiml);   
                 }  
                 else { 
-                myTwitter.getTweet (request.body.Body, function (tweet){
+                    console.log ("phone number "+ request.body.From);
+                    myTwitter.getTweet (request.body.Body, function (tweet){
                     twiml.message("The last tweet for @" +request.body.Body + "was "+tweet);
                     response.send(twiml);
                     });
