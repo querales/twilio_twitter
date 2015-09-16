@@ -46,7 +46,7 @@ app.post('/',twilio.webhook({url:TWILIO_URL,validate:false}),
 
 // Start an HTTP server with this Express app
 app.get('/', function(request, response) {
-    response.send("This would be some HTML");
+    response.send("Hello!! This would be some HTML");
 });
 
  // Make our Express server listen on port 3000.
