@@ -1,4 +1,5 @@
 // appdynamics agent
+/*
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
     controllerPort: 80, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
@@ -8,7 +9,7 @@ require("appdynamics").profile({
     tierName: 'twitter',
     nodeName: 'process' // The controller will automatically append the node name with a unique number
 });
-
+*/
 if(!process.env.TWILIO_ACCOUNT_SID) {
   var env = require('./env.js')
 }
@@ -39,8 +40,8 @@ app.use(bodyParser.json());
 
 // Reads the request, gets the handle, calls getTweet function in myTwitter module 
 // gets the last tweet for the handle and send it to the user
-/*
-app.post('/',twilio.webhook({url:TWILIO_URL,validate:false}), 
+
+app.post('/',twilio.webhook({url:TWILIO_URL,validate:false}),    
          function(request, response) {
                 console.log ("phone number 2*"+ request.body.From);
                 var twiml = new twilio.TwimlResponse();
@@ -49,23 +50,22 @@ app.post('/',twilio.webhook({url:TWILIO_URL,validate:false}),
                     response.send(twiml);   
                 }  
                 else { 
-                    console.log ("phone number 2 "+ request.body.From);
-                    myTwitter.getTweet (request.body.Body, function (tweet){
-                    console.log ("the tweet to send is "+request.body.Body); 
-                    twiml.message("The last tweet for @" +request.body.Body + "was "+tweet);
-                    response.send(twiml);
+                     console.log ("phone number 2 "+ request.body.From);
+                     myTwitter.getTweet (request.body.Body, function (tweet){
+                     console.log ("the tweet to send is "+tweet); 
+                     twiml.message("The last tweet for @" +request.body.Body + "was "+tweet);
+                     response.send(twiml);
                     });
                 }
             });
 
 
-*/
 
 //---
 // to test 
 //----
-   myTwitter.getTweet ("levie", function (tweet){
-                    console.log ("the tweet to send is "+request.body.Body); }
+ //  myTwitter.getTweet ("levie", function (tweet){
+   //                 console.log ("the tweet to send is "+tweet); })
 
 //----
 
