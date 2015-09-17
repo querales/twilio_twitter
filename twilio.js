@@ -39,6 +39,7 @@ app.use(bodyParser.json());
 
 // Reads the request, gets the handle, calls getTweet function in myTwitter module 
 // gets the last tweet for the handle and send it to the user
+/*
 app.post('/',twilio.webhook({url:TWILIO_URL,validate:false}), 
          function(request, response) {
                 console.log ("phone number 2*"+ request.body.From);
@@ -56,6 +57,17 @@ app.post('/',twilio.webhook({url:TWILIO_URL,validate:false}),
                     });
                 }
             });
+
+
+*/
+
+//---
+// to test 
+//----
+   myTwitter.getTweet ("levie", function (tweet){
+                    console.log ("the tweet to send is "+request.body.Body); }
+
+//----
 
 // Start an HTTP server with this Express app
 app.get('/', function(request, response) {
