@@ -30,7 +30,7 @@ client.get('users/lookup.json', {screen_name:handle}, function(error,tweet,respo
 		  // console.log("type "+typeof (tweet));  
 		  console.log(tweet[0].status.text);
 		  lastTweet =tweet[0].status.text;
-		 // setMessg(lastTweet);
+		  setMessg(lastTweet);
 	   }
 	})
 };
