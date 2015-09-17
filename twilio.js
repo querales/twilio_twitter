@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 // gets the last tweet for the handle and send it to the user
 app.post('/',twilio.webhook({url:TWILIO_URL,validate:false}), 
          function(request, response) {
-                console.log ("phone number "+ request.body.From);
+                console.log ("phone number 2*"+ request.body.From);
                 var twiml = new twilio.TwimlResponse();
                 if (request.body.Body == "*"){
                     twiml.message("Error!! you dind't send us a valid Twitter handle");
