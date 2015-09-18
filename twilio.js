@@ -2,12 +2,14 @@
 
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
-    controllerPort: 80, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
+    controllerPort: 8080, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
+    controllerSslEnabled: true,
     accountName: 'BringIT',
     accountAccessKey: '2tljw7jnvndg',
     applicationName: 'twitter_twilio',
-    tierName: 'MyTwitterApp',
-    nodeName: 'twilio' // The controller will automatically append the node name with a unique number
+    tierName: 'Send_Rcv_message',
+    nodeName: 'twilio', // The controller will automatically append the node name with a unique number
+    debug=true
 });
 
 if(!process.env.TWILIO_ACCOUNT_SID) {
@@ -71,7 +73,7 @@ app.post('/',twilio.webhook({url:"https://serene-refuge-2462.herokuapp.com/"}),
 
 // Start an HTTP server with this Express app
 app.get('/', function(request, response) {
-    response.send("Hello!!!! This would be some HTML");
+    response.send("Hello!!!! :)  This would be some HTML");
 });
 
  // Make our Express server listen on port 5000.

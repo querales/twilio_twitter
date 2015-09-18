@@ -2,12 +2,14 @@
 
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
-    controllerPort: 80, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
+    controllerPort: 8080, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
+    controllerSslEnabled: true,
     accountName: 'BringIT',
     accountAccessKey: '2tljw7jnvndg',
     applicationName: 'twitter_twilio',
-    tierName: 'twitter',
-    nodeName: 'get_Tweet_for_handle' // The controller will automatically append the node name with a unique number
+    tierName: 'get tweet',
+    nodeName: 'twitter', // The controller will automatically append the node name with a unique number
+    debug=true // The controller will automatically append the node name with a unique number
 });
 
 
