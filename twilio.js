@@ -2,14 +2,14 @@
 
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
-    controllerPort: 8080, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
+    controllerPort: 443, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
     controllerSslEnabled: true,
     accountName: 'BringIT',
     accountAccessKey: '2tljw7jnvndg',
     applicationName: 'twitter_twilio',
     tierName: 'Send_Rcv_message',
     nodeName: 'twilio', // The controller will automatically append the node name with a unique number
-    debug=true
+    debug:true
 });
 
 if(!process.env.TWILIO_ACCOUNT_SID) {
