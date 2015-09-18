@@ -1,5 +1,5 @@
 // appdynamics agent
-/*
+
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
     controllerPort: 80, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
@@ -7,9 +7,10 @@ require("appdynamics").profile({
     accountAccessKey: '2tljw7jnvndg',
     applicationName: 'twitter_twilio',
     tierName: 'twitter',
-    nodeName: 'twitter' // The controller will automatically append the node name with a unique number
+    nodeName: 'get_Tweet_for_handle' // The controller will automatically append the node name with a unique number
 });
-*/
+
+
 var lastTweet;
 
 var Twitter = require('twitter');

@@ -1,15 +1,15 @@
 // appdynamics agent
-/*
+
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
     controllerPort: 80, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
     accountName: 'BringIT',
     accountAccessKey: '2tljw7jnvndg',
     applicationName: 'twitter_twilio',
-    tierName: 'twitter',
-    nodeName: 'process' // The controller will automatically append the node name with a unique number
+    tierName: 'MyTwitterApp',
+    nodeName: 'twilio' // The controller will automatically append the node name with a unique number
 });
-*/
+
 if(!process.env.TWILIO_ACCOUNT_SID) {
   var env = require('./env.js')
 }
