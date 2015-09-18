@@ -2,8 +2,8 @@
 
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
-    controllerPort: 443, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
-    controllerSslEnabled: true,
+    controllerPort: 80, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
+    //controllerSslEnabled: true,
     accountName: 'BringIT',
     accountAccessKey: '2tljw7jnvndg',
     applicationName: 'twitter_twilio',
