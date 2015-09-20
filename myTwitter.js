@@ -11,6 +11,7 @@ require("appdynamics").profile({
     debug:true // The controller will automatically append the node name with a unique number
 });
 
+/*
 var fs = require('fs');
 var util = require('util');
 var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
@@ -20,7 +21,7 @@ console.log = function(d) { //
   log_file.write(util.format(d) + '\n');
   log_stdout.write(util.format(d) + '\n');
 };
-
+*/
 
 var lastTweet;
 
