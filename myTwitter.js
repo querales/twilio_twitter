@@ -14,6 +14,7 @@ require("appdynamics").profile({
 
 
 // write to files
+var fs = require('fs');
 var access = fs.createWriteStream(dir + '/node.access.log', { flags: 'a' })
       , error = fs.createWriteStream(dir + '/node.error.log', { flags: 'a' });
 
