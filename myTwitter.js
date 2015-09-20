@@ -1,15 +1,4 @@
-var fs = require('fs');
-var util = require('util');
-var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
-var log_stdout = process.stdout;
-
-console.log = function(d) { //
-  log_file.write(util.format(d) + '\n');
-  log_stdout.write(util.format(d) + '\n');
-};
-
 // appdynamics agent
-
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
     controllerPort: 443, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
@@ -22,6 +11,15 @@ require("appdynamics").profile({
     debug:true // The controller will automatically append the node name with a unique number
 });
 
+var fs = require('fs');
+var util = require('util');
+var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
+var log_stdout = process.stdout;
+
+console.log = function(d) { //
+  log_file.write(util.format(d) + '\n');
+  log_stdout.write(util.format(d) + '\n');
+};
 
 
 var lastTweet;
