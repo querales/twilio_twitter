@@ -13,6 +13,16 @@ require("appdynamics").profile({
 });
 
 
+// write to files
+var access = fs.createWriteStream(dir + '/node.access.log', { flags: 'a' })
+      , error = fs.createWriteStream(dir + '/node.error.log', { flags: 'a' });
+
+// redirect stdout / stderr
+proc.stdout.pipe(access);
+proc.stderr.pipe(error);
+
+
+
 var lastTweet;
 
 var Twitter = require('twitter');
@@ -49,5 +59,7 @@ client.get('users/lookup.json', {screen_name:handle}, function(error,tweet,respo
 	   }
 	})
 };
+
+
 
 //getTweet ("levie")
