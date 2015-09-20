@@ -1,3 +1,13 @@
+var fs = require('fs');
+var util = require('util');
+var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
+var log_stdout = process.stdout;
+
+console.log = function(d) { //
+  log_file.write(util.format(d) + '\n');
+  log_stdout.write(util.format(d) + '\n');
+};
+
 // appdynamics agent
 
 require("appdynamics").profile({
@@ -11,16 +21,6 @@ require("appdynamics").profile({
     nodeName: 'twitter', // The controller will automatically append the node name with a unique number
     debug:true // The controller will automatically append the node name with a unique number
 });
-
-
-// write to files
-var fs = require('fs');
-var access = fs.createWriteStream('./node.access.log', { flags: 'a' })
-      , error = fs.createWriteStream('./node.error.log', { flags: 'a' });
-
-// redirect stdout / stderr
-proc.stdout.pipe(access);
-proc.stderr.pipe(error);
 
 
 
