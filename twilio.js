@@ -1,4 +1,4 @@
-/*
+
 // appdynamics agent
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
@@ -12,7 +12,7 @@ require("appdynamics").profile({
     debug:true
 });
 
-
+/*
 var fs = require('fs');
 var util = require('util');
 var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
@@ -24,13 +24,12 @@ console.log = function(d) { //
 };
 
 
-*/
 // write to files
 var fs = require('fs');
 var access = fs.createWriteStream('./node.access.log', { flags: 'a' })
       , error = fs.createWriteStream('./node.error.log', { flags: 'a' });
 
-
+*/
 
 if(!process.env.TWILIO_ACCOUNT_SID) {
   var env = require('./env.js')
