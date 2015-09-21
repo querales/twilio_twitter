@@ -1,5 +1,5 @@
+/*
 // appdynamics agent
-
 require("appdynamics").profile({
     controllerHostName: 'paid138.saas.appdynamics.com',
     controllerPort: 443, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
@@ -12,6 +12,7 @@ require("appdynamics").profile({
     debug:true
 });
 
+
 var fs = require('fs');
 var util = require('util');
 var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
@@ -23,7 +24,7 @@ console.log = function(d) { //
 };
 
 
-
+*/
 // write to files
 var fs = require('fs');
 var access = fs.createWriteStream('./node.access.log', { flags: 'a' })
@@ -95,7 +96,7 @@ app.post('/',twilio.webhook({url:"https://serene-refuge-2462.herokuapp.com/"}),
 
 // Start an HTTP server with this Express app
 app.get('/', function(request, response) {
-    response.send("Hello!!!! :))))  This would be some HTML!!!!!");
+    response.send("Hello!!!! This would be some HTML!!!!!.. yeah!!");
 });
 
  // Make our Express server listen on port 5000.
