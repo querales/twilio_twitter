@@ -12,7 +12,7 @@ require("appdynamics").profile({
     debug:true
 });
 
-/*
+
 var fs = require('fs');
 var util = require('util');
 var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
