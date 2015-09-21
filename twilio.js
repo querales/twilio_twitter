@@ -30,9 +30,6 @@ var fs = require('fs');
 var access = fs.createWriteStream('./node.access.log', { flags: 'a' })
       , error = fs.createWriteStream('./node.error.log', { flags: 'a' });
 
-// redirect stdout / stderr
-proc.stdout.pipe(access);
-proc.stderr.pipe(error);
 
 
 if(!process.env.TWILIO_ACCOUNT_SID) {
