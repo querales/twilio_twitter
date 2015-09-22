@@ -1,3 +1,35 @@
+
+// appdynamics agent
+require("appdynamics").profile({
+    controllerHostName: 'paid138.saas.appdynamics.com',
+    controllerPort: 443, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
+    controllerSslEnabled: true,
+    accountName: 'BringIT',
+    accountAccessKey: '2tljw7jnvndg',
+    applicationName: 'twitter_twilio',
+    tierName: 'Send_Rcv_message',
+    nodeName: 'twilio', // The controller will automatically append the node name with a unique number
+    debug:true
+});
+
+
+var fs = require('fs');
+var util = require('util');
+var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
+var log_stdout = process.stdout;
+
+console.log = function(d) { //
+  log_file.write(util.format(d) + '\n');
+  log_stdout.write(util.format(d) + '\n');
+};
+
+
+// write to files
+var fs = require('fs');
+var access = fs.createWriteStream('./node.access.log', { flags: 'a' })
+      , error = fs.createWriteStream('./node.error.log', { flags: 'a' });
+
+
 if(!process.env.TWILIO_ACCOUNT_SID) {
   var env = require('./env.js')
 }
@@ -28,7 +60,8 @@ app.use(bodyParser.json());
 
 // Reads the request, gets the handle, calls getTweet function in myTwitter module 
 // gets the last tweet for the handle and send it to the user
-app.post('/',twilio.webhook({url:TWILIO_URL}), 
+
+app.post('/',twilio.webhook({url:"https://serene-refuge-2462.herokuapp.com/"}),    
          function(request, response) {
                 console.log ("phone number 2*"+ request.body.From);
                 var twiml = new twilio.TwimlResponse();
@@ -37,18 +70,28 @@ app.post('/',twilio.webhook({url:TWILIO_URL}),
                     response.send(twiml);   
                 }  
                 else { 
-                    console.log ("phone number 2 "+ request.body.From);
-                    myTwitter.getTweet (request.body.Body, function (tweet){
-                    console.log ("the tweet to send is "+request.body.Body); 
-                    twiml.message("The last tweet for @" +request.body.Body + "was "+tweet);
-                    response.send(twiml);
+                     console.log ("phone number 2 "+ request.body.From);
+                     myTwitter.getTweet (request.body.Body, function (tweet){
+                     console.log ("the tweet to send is "+tweet); 
+                     twiml.message("The last tweet for @" +request.body.Body + "was "+tweet);
+                     response.send(twiml);
                     });
                 }
             });
 
+
+
+//---
+// to test 
+//----
+ //  myTwitter.getTweet ("levie", function (tweet){
+   //                 console.log ("the tweet to send is "+tweet); })
+
+//----
+
 // Start an HTTP server with this Express app
 app.get('/', function(request, response) {
-    response.send("Hello!!!! :)) This would be some HTML");
+    response.send("Hello!!!! This would be some HTML!!!!!..");
 });
 
  // Make our Express server listen on port 5000.

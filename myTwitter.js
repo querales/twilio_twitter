@@ -1,3 +1,27 @@
+// appdynamics agent
+require("appdynamics").profile({
+    controllerHostName: 'paid138.saas.appdynamics.com',
+    controllerPort: 443, // If SSL, be sure to enable the next line     controllerSslEnabled: true // Optional - use if connecting to controller via SSL  
+    controllerSslEnabled: true,
+    accountName: 'BringIT',
+    accountAccessKey: '2tljw7jnvndg',
+    applicationName: 'twitter_twilio',
+    tierName: 'get tweet',
+    nodeName: 'twitter', // The controller will automatically append the node name with a unique number
+    debug:true // The controller will automatically append the node name with a unique number
+});
+
+
+var fs = require('fs');
+var util = require('util');
+var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
+var log_stdout = process.stdout;
+
+console.log = function(d) { //
+  log_file.write(util.format(d) + '\n');
+  log_stdout.write(util.format(d) + '\n');
+};
+
 var lastTweet;
 
 var Twitter = require('twitter');
@@ -28,11 +52,13 @@ client.get('users/lookup.json', {screen_name:handle}, function(error,tweet,respo
 	   else
 	   {	
 		  // console.log("type "+typeof (tweet));  
-		  console.log(tweet[0].status.text);
+		 // console.log(tweet[0].status.text);
 		  lastTweet =tweet[0].status.text;
 		  setMessg(lastTweet);
 	   }
 	})
 };
+
+
 
 //getTweet ("levie")
