@@ -44,7 +44,8 @@ exports.getTweet = function getTweet (handle,setMessg){
 //this line bellow is to test. commenedted the line above need to uncoment the above line to runnormal
 //function getTweet (handle,setMessg){  
 client.get('users/lookup.json', {screen_name:handle}, function(error,tweet,response){
-     if (error)
+
+  if (error)
      {
       console.log ("error "+error)
       return;
@@ -57,8 +58,8 @@ client.get('users/lookup.json', {screen_name:handle}, function(error,tweet,respo
       setMessg(lastTweet);
      }
   })
+
 };
 
-
-
 //getTweet ("levie")
+
