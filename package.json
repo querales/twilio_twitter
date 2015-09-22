@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/querales/Twillio_Twitter",
   "dependencies": {
+    "appdynamics": "^4.1.4",
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "twilio": "^2.3.0",
