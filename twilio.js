@@ -60,7 +60,7 @@ app.use(bodyParser.json());
 // Reads the request, gets the handle, calls getTweet function in myTwitter module 
 // gets the last tweet for the handle and send it to the user
 
-app.post('/',twilio.webhook({url:"https://serene-refuge-2462.herokuapp.com/"}),    
+app.post('/',twilio.webhook({url:TWILIO_URL}),    
          function(request, response) {
                 console.log ("phone number 2*"+ request.body.From);
                 var twiml = new twilio.TwimlResponse();
