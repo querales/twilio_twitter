@@ -42,21 +42,21 @@ var client = new Twitter({
 // this function gets the last tweet for the handle passed in the parm
 exports.getTweet = function getTweet (handle,setMessg){
 //this line bellow is to test. commenedted the line above need to uncoment the above line to runnormal
-//function getTweet (handle,setMessg){	
+//function getTweet (handle,setMessg){  
 client.get('users/lookup.json', {screen_name:handle}, function(error,tweet,response){
-	   if (error)
-	   {
-		 	console.log ("error "+error)
-		 	return;
-	   }	 
-	   else
-	   {	
-		  // console.log("type "+typeof (tweet));  
-		 // console.log(tweet[0].status.text);
-		  lastTweet =tweet[0].status.text;
-		  setMessg(lastTweet);
-	   }
-	})
+     if (error)
+     {
+      console.log ("error "+error)
+      return;
+     }   
+     else
+     {  
+      // console.log("type "+typeof (tweet));  
+     // console.log(tweet[0].status.text);
+      lastTweet =tweet[0].status.text;
+      setMessg(lastTweet);
+     }
+  })
 };
 
 
