@@ -72,7 +72,7 @@ app.post('/',twilio.webhook({url:TWILIO_URL}),
                      console.log ("phone number 2 "+ request.body.From);
                      myTwitter.getTweet (request.body.Body, function (tweet){
                      console.log ("the tweet to send is "+tweet); 
-                     twiml.message("The last tweet for @ " +request.body.Body + " was "+tweet);
+                     twiml.message("The last tweet for @" +request.body.Body + " was "+tweet);
                      response.send(twiml);
                     });
                 }
